@@ -1,24 +1,24 @@
 package Materia.Queues;
 
+import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
-
 import Materia.Models.Node;
+import Materia.Models.NodeGeneric;
 
-public class Queue {
-    private Node front; //nodo al frente de la cola
-    private Node rear; //nodo al final de la cola
+public class QueueGeneric<T> {
+    private NodeGeneric<T> front; //nodo al frente de la cola
+    private NodeGeneric<T> rear; //nodo al final de la cola
     private int size;
 
-    //Creamos unaa cola con nodos vacios
-    public Queue(){
+    public QueueGeneric(){
         this.front = null;
         this.rear = null;
         this.size = 0;
     }
 
     //metodo para encolar nodos
-    public void enqueue(int value){
-        Node newNode = new Node(value);
+    public void enqueue(T value){
+        NodeGeneric<T> newNode = new NodeGeneric<>(value);
         if(isEmpty()){
             front = newNode;
             rear = newNode;
@@ -33,33 +33,27 @@ public class Queue {
     }
 
     //Desencolar
-    public Node dequeue(){
+    public T dequeue(){
         if(isEmpty()){
             throw new NoSuchElementException("La cola esta vacia");
         }
-        Node node = front;
+        T node = front.getValue();
         front = front.getNext();
         if(front ==null){
             rear = null;
         }
         return node;
     }
-    public Node peek(){
+    public T peek(){
         if(isEmpty()){
             throw new NoSuchElementException();
         }
-        return front;
+        return front.getValue();
     }
-    public void printQueue(){
-        Node current = front;
-        while (current != null) {
-            System.out.println(current.getValue());
-            current = current.getNext();
-        }
-    }
+
     public int getSize(){
         int cont = 0;
-        Node current = front;
+        NodeGeneric<T> current = front;
         while (current != null) {
             cont++;
             current = current.getNext();
@@ -69,5 +63,21 @@ public class Queue {
 
     public int getSize2(){
         return size;
+    }
+    public void printQueueGeneric(){
+        NodeGeneric<T> current = front;
+        while (current != null) {
+            System.out.println(current.getValue());
+            current = current.getNext();
+        }
+    }
+    public NodeGeneric<T> popNode(){
+        if(isEmpty()){
+            throw new EmptyStackException();
+        }
+        NodeGeneric<T> value = front;
+        front = front.getNext();
+        size--;
+        return value;
     }
 }

@@ -32,7 +32,8 @@ public class Node {
 
     @Override
     public String toString(){
-        return "Value:" + value + " | Node:" + next;
+        //return "Value:" + value + " | Node:" + next;
+        return "Value:" + value;
     }
 
 }
