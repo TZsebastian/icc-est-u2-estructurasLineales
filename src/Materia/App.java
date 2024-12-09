@@ -2,6 +2,7 @@ package Materia;
 import Materia.Stacks.Stack;
 import Materia.Stacks.StackGeneric;
 import Models2.Pantalla;
+import Controllers.MenuController;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 
@@ -9,8 +10,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         //runStack();
         //runStackGeneric();
-        runQueue();
-        runQueueGeneric();
+        //runQueue();
+        //runQueueGeneric();
+        runContactManager();
     }
 
     public static void runStack(){
@@ -92,4 +94,11 @@ public class App {
         System.out.println("Estoy en " + cola.peek().getRuta());
         cola.printQueueGeneric();
     }
+
+    private static void runContactManager(){
+        MenuController menuController = new MenuController();
+        menuController.showMenu();
+    }
+
+
 }
