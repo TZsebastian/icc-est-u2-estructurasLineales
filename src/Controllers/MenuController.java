@@ -25,17 +25,17 @@ public class MenuController {
                     addContact();
                     break;
                 case "2":
-                    findContact();
+                    findContactByName();
                     break;
                 case "3":
-                    deleteContact();
+                    deleteContactByName();
                     break;
                 case "4":
                     printList();
                     break;
                 case "5":
                     exit = true;
-                    consoleView.showMessage("Exiting...");
+                    consoleView.showMessage("Exitinzg...");
                     break;
                 default:
                     consoleView.showMessage("Invalid option. Please try again.");
@@ -52,12 +52,20 @@ public class MenuController {
         consoleView.showMessage("Contact added");
     }
 
-    private void findContact() {
-
+    private void findContactByName() {
+        String name = consoleView.getInput("Enter a name to search");
+        Contact<?,?> contact = contactManager.findContactByName(name);
+        if(contact != null){
+            consoleView.showMessage("Contact found: " + contact);
+        } else{
+            consoleView.showMessage("Contact not found 404");
+        }
     }
 
-    private void deleteContact() {
-
+    private void deleteContactByName() {
+        String name = consoleView.getInput("Enter a name to delete: ");
+        contactManager.deleteContactByName(name);
+        consoleView.showMessage("Contact deleted if it ex");
     }
 
     private void printList() {

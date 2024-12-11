@@ -4,6 +4,22 @@ public class LindekList <T> {
     private NodeGeneric<T> head;
     private int size = 0;
 
+    public NodeGeneric<T> getHead() {
+        return head;
+    }
+
+    public void setHead(NodeGeneric<T> head) {
+        this.head = head;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     public void appendToTail(T value){
         if(head == null){
             head = new NodeGeneric<>(value);
@@ -27,8 +43,7 @@ public class LindekList <T> {
             System.out.println(current.getValue() + " -> ");
             current = current.getNext();
         }
-        System.out.println(current.getValue());
-        System.out.println("End");
+        System.out.println(current.getValue() + " -> End");
     }
 
 }
