@@ -3,7 +3,7 @@ package Ejercicio_01_sign;
 import Materia.Stacks.StackGeneric;  
 import java.util.Scanner;
 
-public class Ejercicio01 {
+public class SignValidator {
 
     public void showMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -47,14 +47,14 @@ public class Ejercicio01 {
     
         for (char c : input.toCharArray()) {
             if (c == '{') {
-                stack.push(c);  // Apilar solo las llaves de apertura
+                stack.push(c); 
             } else if (c == '}') {
                 if (stack.isEmpty()) {
-                    return false;  // Si la pila está vacía, hay un cierre sin apertura
+                    return false;
                 }
-                stack.pop();  // Desapilar para cada llave de cierre válida
+                stack.pop();  
             }
         }
-        return stack.isEmpty();  // Si la pila está vacía, todas las llaves están balanceadas
+        return stack.isEmpty();  
     }
 }    
