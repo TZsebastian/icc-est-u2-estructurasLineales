@@ -12,7 +12,7 @@ public class SignValidator {
         while (!exit) {
             System.out.println("-------------");
             System.out.println("Menú de Validación de Signos");
-            System.out.println("1. Validar cadena de signos");
+            System.out.println("1. Validar cadena de signos(Solo ingresar los signos)");
             System.out.println("2. Salir");
 
             System.out.print("Seleccione una opción: ");
@@ -50,11 +50,11 @@ public class SignValidator {
                 stack.push(c); 
             } else if (c == '}') {
                 if (stack.isEmpty()) {
-                    return false;
+                    return false; 
                 }
                 stack.pop();  
             }
         }
-        return stack.isEmpty();  
+        return stack.isEmpty(); 
     }
 }    

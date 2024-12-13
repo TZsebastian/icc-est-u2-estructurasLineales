@@ -33,13 +33,29 @@ public class StackSorter {
         
 
         System.out.print("Ingrese la cantidad de elementos para la pila: ");
-        int n = Integer.parseInt(scanner.nextLine());
+        int n;
+        while (true) {
+            try {
+                n = Integer.parseInt(scanner.nextLine());
+                if (n > 0) break;
+                System.out.println("Por favor, ingrese un número positivo.");
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Ingrese un número entero positivo.");
+            }
+        }
 
         System.out.println("Ingrese los elementos de la pila:");
         for (int i = 0; i < n; i++) {
-            System.out.print("Elemento " + (i + 1) + ": ");
-            int element = Integer.parseInt(scanner.nextLine());
-            stack.push(element);
+            while (true) {
+                System.out.print("Elemento " + (i + 1) + ": ");
+                try {
+                    int element = Integer.parseInt(scanner.nextLine());
+                    stack.push(element);
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida. Ingrese un número entero.");
+                }
+            }
         }
 
         System.out.println("\nPila original:");
