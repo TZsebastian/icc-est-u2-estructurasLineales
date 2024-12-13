@@ -3,6 +3,8 @@ import Materia.Stacks.Stack;
 import Materia.Stacks.StackGeneric;
 import Models2.Pantalla;
 import Controllers.MenuController;
+import Ejercicio_01_sign.Ejercicio01;
+import Ejercicio_02_sorting.Ejercicio02;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 
@@ -12,7 +14,13 @@ public class App {
         //runStackGeneric();
         //runQueue();
         //runQueueGeneric();
-        runContactManager();
+        //runContactManager();
+        //Llamada al metodo ejercicio 1
+
+        runSignValidator();
+        //Llamada al metodo ejercicio 2
+
+        //runStackSorter();
     }
 
     public static void runStack(){
@@ -100,5 +108,12 @@ public class App {
         menuController.showMenu();
     }
 
+    private static void runSignValidator() {
+        Ejercicio01 ejercicio = new Ejercicio01();
+        ejercicio.showMenu();
+    }
 
+    private static void runStackSorter() {
+        Ejercicio02.run();  // Llamamos al método run() de Ejercicio02 para ordenar la pila
+    }
 }

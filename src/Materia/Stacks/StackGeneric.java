@@ -49,6 +49,31 @@ public class StackGeneric <T> {
         }
     }
 
+    public void printStackEjercicio() {
+        NodeGeneric<T> current = top;
+        if (current != null) {
+            // Imprimir el primer elemento sin flecha
+            System.out.print(current.getValue());
+            current = current.getNext();
+    
+            // Imprimir los demás elementos con flecha
+            while (current != null) {
+                System.out.print("->" + current.getValue());
+                current = current.getNext();
+            }
+        } else {
+            System.out.println("La pila está vacía.");
+        }
+        System.out.println();  
+    }
+
+    public NodeGeneric<T> peekNode() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return top;  // Retorna el nodo en la cima de la pila
+    }
+
     public int getSize(){
         int cont = 0;
         NodeGeneric<T> current = top;
